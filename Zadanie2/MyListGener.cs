@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zadanie2
 {
-    class Program
+    class MyListGener
     {
-        static void Main()
-        {
-        }
     }
 }
