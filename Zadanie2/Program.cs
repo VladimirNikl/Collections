@@ -10,6 +10,12 @@ namespace Zadanie2
     {
         static void Main()
         {
+            int i = 5;
+           // MyList<string> strCollect = new MyList<string>("k","i");
+            foreach(string item in new MyList<string>("k", "i"))
+                Console.WriteLine(item);
+
+            Console.ReadKey();
         }
     }
 }
