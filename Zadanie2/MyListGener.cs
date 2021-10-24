@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Zadanie2
 {
-    class MyList<T> : IEnumerable<T>, IEnumerable, IEnumerator<T>, IEnumerator, IDisposable
+    class MyList<T> : List<T>, IEnumerable<T>, IEnumerable, IEnumerator<T>, IEnumerator, IDisposable
     {
         private T[] array;
         private int position = -1;
@@ -36,7 +36,7 @@ namespace Zadanie2
         bool IEnumerator.MoveNext()
         {
             position++;
-            if (position >= 0 && position < array.Length)
+            if (position >= 0 && position < array.Length-1)
                 return true;
             else
             { 

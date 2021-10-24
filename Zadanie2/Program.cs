@@ -23,6 +23,7 @@ namespace Zadanie2
                     flag = false;
             } while (flag);
             MyList<string> strCollect = new MyList<string>(line);
+            strCollect.Add("t4e");
             foreach (string item in strCollect)
                 Console.WriteLine(item);
             Console.WriteLine(string.Format("+-+-"));
