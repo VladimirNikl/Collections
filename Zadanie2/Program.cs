@@ -24,25 +24,46 @@ namespace Zadanie2
                     else
                         Console.Write("  Не правильный ввод.");
                 if (flag == "2")
-                    OutCollect();
-                if (flag == "0")
-                {
-                    Console.Write(" Номер удаляемого элемента. Ввести : ");
-                    if (Int32.TryParse(Console.ReadLine(), out int input) && (input >= 0 & input < intCollect.LengthN))
-                        intCollect.Del(input);
+                    if (intCollect.LengthN == 0)
+                        Console.WriteLine("  Колекция не имеет элементов.");
                     else
-                        Console.WriteLine(" Не корректный ввод");
+                        OutCollect();
+                if (flag == "0" || flag == "3")
+                {
+                    if (intCollect.LengthN == 0)
+                        Console.WriteLine("  Колекция не имеет элементов.");
+                    else
+                    {
+                        if (flag == "0")
+                        {
+                            Console.Write(" Номер удаляемого элемента. Ввести : ");
+                            if (Int32.TryParse(Console.ReadLine(), out int input) && (input >= 0 & input < intCollect.LengthN))
+                                intCollect.Del(input);
+                            else
+                                Console.WriteLine(" Не корректный ввод");
+                        }
+                        if (flag == "3")
+                        {
+                            Console.Write("  Вводим номер элемента колекции для вывода : ");
+                            if (Int32.TryParse(Console.ReadLine(), out int index) && (index >= 0 & index < intCollect.LengthN))
+                                Console.WriteLine(intCollect[index]);
+                            else
+                                Console.WriteLine("  Не корректный ввод");
+                        }
+                    }
                 }
-            } while (flag == "1" || flag == "2" || flag =="0");
+                if (flag == "4")
+                    Console.WriteLine("  Количество элементов колекции - {0}", intCollect.LengthN);
+            } while (flag == "1" || flag == "2" || flag == "0" || flag == "3" || flag == "4");
             // MyList<string> strCollect = new MyList<string>("rt", "ytr", "re44", "532", "rrt");
             //strCollect.Add("moj'nkn''ljk");
             //foreach (string item in strCollect)
             //  Console.WriteLine(item);
-           // Console.WriteLine(string.Format("+-+-"));
+            // Console.WriteLine(string.Format("+-+-"));
 
             // intCollect.Add(new int() { });
-           // foreach (int item in intCollect)
-              //  Console.WriteLine(item);
+            // foreach (int item in intCollect)
+            //  Console.WriteLine(item);
 
             //Console.WriteLine("-------");
             //Console.WriteLine("   2-й элеьент {0}", intCollect[2]);
@@ -52,7 +73,7 @@ namespace Zadanie2
                     Console.Write(intCollect[i] + "  ");      // перем intCollect содержит ссылку на массив, который изменяется от моих изменений,
                 Console.WriteLine();                         // т.е. ссылка на то место в памяти, которое изменяется, т.е. экземпляр не запоминает
             }                                            // то время, то состояние на момент создания.
-           // Console.ReadKey();
+                                                         // Console.ReadKey();
         }
     }
 }

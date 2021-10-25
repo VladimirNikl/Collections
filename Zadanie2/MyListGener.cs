@@ -66,7 +66,7 @@ namespace Zadanie2
         {
             n--;
             array = new T[n];
-            for(int i=0; i< n; i++)
+            for (int i = 0; i < n; i++)
             {
                 if (i >= argument)
                     array[i] = mirror[i + 1];
@@ -76,8 +76,9 @@ namespace Zadanie2
             mirror = new T[n];
             for (int i = 0; i < n; i++)
                 mirror[i] = array[i];
+            if (n == 0)
+                Console.WriteLine("  Колекция не имеет элементов.");
         }
-
         public T this[int index]
         {
             get { return array[index]; }
