@@ -62,6 +62,21 @@ namespace Zadanie2
             for (int i = 0; i < n; i++)
                 mirror[i] = array[i];
         }
+        public void Del(int argument)
+        {
+            n--;
+            array = new T[n];
+            for(int i=0; i< n; i++)
+            {
+                if (i >= argument)
+                    array[i] = mirror[i + 1];
+                else
+                    array[i] = mirror[i];
+            }
+            mirror = new T[n];
+            for (int i = 0; i < n; i++)
+                mirror[i] = array[i];
+        }
 
         public T this[int index]
         {
