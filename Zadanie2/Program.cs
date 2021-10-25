@@ -10,27 +10,39 @@ namespace Zadanie2
     {
         static void Main()
         {
-            int i = 1;
-            bool flag = true;
-            string line = null;
-            Console.WriteLine("     Введем элементы коллекции:");
+            string flag;
+            Console.WriteLine("     Элементы коллекции типа int :");
+            MyList<int> intCollect = new MyList<int>();
             do
             {
-                line += Console.ReadLine();
-                Console.WriteLine("    Закончить -  нажать '0', продолжить - иначе.");
-                string endInput = Console.ReadLine();
-                if (endInput == "0")
-                    flag = false;
-            } while (flag);
-            MyList<string> strCollect = new MyList<string>(line);
-            strCollect.Add("t4e");
-            foreach (string item in strCollect)
-                Console.WriteLine(item);
+                Console.Write("  Ввести элемент - нажать 1, закончить ввод - иначе. :");
+                flag = Console.ReadLine();
+                if (flag == "1")
+                    if (Int32.TryParse(Console.ReadLine(), out int inInt))
+                        intCollect.Add(inInt);
+                    else
+                    {
+                        Console.Write("  Не правильный ввод. Ввести элемент - нажать 1, закончить ввод - иначе. :");
+                        flag = Console.ReadLine();
+                    }
+            } while (flag == "1");
+           // MyList<string> strCollect = new MyList<string>("rt", "ytr", "re44", "532", "rrt");
+            //strCollect.Add("moj'nkn''ljk");
+            //foreach (string item in strCollect)
+              //  Console.WriteLine(item);
             Console.WriteLine(string.Format("+-+-"));
-            MyList<int> intCollect = new MyList<int>(284, 48);
+            
+            // intCollect.Add(new int() { });
             foreach (int item in intCollect)
                 Console.WriteLine(item);
 
+            Console.WriteLine("-------");
+            Console.WriteLine("   2-й элеьент {0}", intCollect[2]);
+
+            for (int i = 0; i < intCollect.LengthN; i++) // хоть и не создаю новый экземпляр, а только изменяю колл элементов в массиве, всеравно
+                Console.Write(intCollect[i]+ "  ");      // перем intCollect содержит ссылку на массив, который изменяется от моих изменений,
+                                                         // т.е. ссылка на то место в памяти, которое изменяется, т.е. не запоминает экземпляр
+                                                         // то время, то состояние на момент создания.
             Console.ReadKey();
         }
     }
