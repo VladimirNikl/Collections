@@ -46,7 +46,7 @@ namespace Zadanie2
             position = -1;
         }
         void IDisposable.Dispose() { }
-        public void Add(T argument)
+        public void Add(T argument)       // добавляем тип T , а удаляем по индексу по int;
         {
             n++;           
             array = new T[n]; // T[] armass = new T[n];  // получим 'лишний' массив. можно использ array;//создаю array только здесь.

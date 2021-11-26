@@ -27,7 +27,7 @@ namespace Zadanie2
                     if (intCollect.LengthN == 0)
                         Console.WriteLine("  Колекция не имеет элементов.");
                     else
-                        OutCollect();
+                        OutCollect(); // OutCollect2();
                 if (flag == "0" || flag == "3")
                 {
                     if (intCollect.LengthN == 0)
@@ -46,7 +46,7 @@ namespace Zadanie2
                         {
                             Console.Write("  Вводим номер элемента колекции для вывода : ");
                             if (Int32.TryParse(Console.ReadLine(), out int index) && (index >= 0 & index < intCollect.LengthN))
-                                Console.WriteLine(intCollect[index]);
+                                Console.WriteLine(intCollect[index]); // показать и по свойству Current;
                             else
                                 Console.WriteLine("  Не корректный ввод");
                         }
@@ -67,13 +67,19 @@ namespace Zadanie2
 
             //Console.WriteLine("-------");
             //Console.WriteLine("   2-й элеьент {0}", intCollect[2]);
-            void OutCollect()
+            void OutCollect()    //  ДАЖЕ В main() хоть мы идем по строкам - , методы без их вызова НЕ ВЫПОЛНЯЮТСЯ  !!!
             {
                 for (int i = 0; i < intCollect.LengthN; i++) // хоть и не создаю новый экземпляр, а только изменяю колл элементов в массиве, всеравно
                     Console.Write(intCollect[i] + "  ");      // перем intCollect содержит ссылку на массив, который изменяется от моих изменений,
                 Console.WriteLine();                         // т.е. ссылка на то место в памяти, которое изменяется, т.е. экземпляр не запоминает
             }                                            // то время, то состояние на момент создания.
                                                          // Console.ReadKey();
+            void OutCollect2()
+            {
+                foreach (int item in intCollect)
+                    Console.Write(item + "  ");
+            }
+           // Console.ReadKey();
         }
     }
 }
